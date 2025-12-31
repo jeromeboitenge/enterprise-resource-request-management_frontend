@@ -197,3 +197,22 @@ export interface PaginatedResponse<T> {
     limit: number;
     totalPages: number;
 }
+
+
+// Enhanced types for backend compatibility
+export interface RegisterData {
+    name: string;
+    email: string;
+    password: string;
+    confirmPassword: string;
+    role?: 'employee' | 'manager' | 'departmenthead' | 'finance' | 'admin';
+    department?: string;
+}
+
+export interface ApiError {
+    message: string;
+    isRateLimited?: boolean;
+    isForbidden?: boolean;
+    isLocked?: boolean;
+    remainingAttempts?: number;
+}
