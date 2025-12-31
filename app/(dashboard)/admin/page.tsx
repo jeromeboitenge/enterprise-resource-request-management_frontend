@@ -24,7 +24,7 @@ export default function AdminDashboard() {
     const [stats, setStats] = useState<DashboardStats | null>(null);
     const [isLoading, setIsLoading] = useState(true);
 
-    useEffect() => {
+    useEffect(() => {
         loadDashboardData();
     }, []);
 
@@ -139,47 +139,53 @@ export default function AdminDashboard() {
 
                 {/* Quick Actions */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <Card hover className="cursor-pointer" onClick={() => router.push('/admin/users')}>
-                        <CardContent className="p-6">
-                            <div className="flex items-center space-x-4">
-                                <div className="p-3 bg-blue-100 rounded-lg">
-                                    <UsersIcon className="h-8 w-8 text-blue-600" />
+                    <div onClick={() => router.push('/admin/users')}>
+                        <Card hover className="cursor-pointer">
+                            <CardContent className="p-6">
+                                <div className="flex items-center space-x-4">
+                                    <div className="p-3 bg-blue-100 rounded-lg">
+                                        <UsersIcon className="h-8 w-8 text-blue-600" />
+                                    </div>
+                                    <div>
+                                        <h3 className="font-semibold text-gray-800">Manage Users</h3>
+                                        <p className="text-sm text-gray-600">Add, edit, or deactivate users</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h3 className="font-semibold text-gray-800">Manage Users</h3>
-                                    <p className="text-sm text-gray-600">Add, edit, or deactivate users</p>
-                                </div>
-                            </div>
-                        </CardContent>
-                    </Card>
+                            </CardContent>
+                        </Card>
+                    </div>
 
-                    <Card hover className="cursor-pointer" onClick={() => router.push('/admin/departments')}>
-                        <CardContent className="p-6">
-                            <div className="flex items-center space-x-4">
-                                <div className="p-3 bg-purple-100 rounded-lg">
-                                    <BuildingOfficeIcon className="h-8 w-8 text-purple-600" />
+                    <div onClick={() => router.push('/admin/departments')}>
+                        <Card hover className="cursor-pointer">
+                            <CardContent className="p-6">
+                                <div className="flex items-center space-x-4">
+                                    <div className="p-3 bg-purple-100 rounded-lg">
+                                        <BuildingOfficeIcon className="h-8 w-8 text-purple-600" />
+                                    </div>
+                                    <div>
+                                        <h3 className="font-semibold text-gray-800">Manage Departments</h3>
+                                        <p className="text-sm text-gray-600">Configure departments</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h3 className="font-semibold text-gray-800">Manage Departments</h3>
-                                    <p className="text-sm text-gray-600">Configure departments</p>
-                                </div>
-                            </div>
-                        </CardContent>
-                    </Card>
+                            </CardContent>
+                        </Card>
+                    </div>
 
-                    <Card hover className="cursor-pointer" onClick={() => router.push('/admin/reports')}>
-                        <CardContent className="p-6">
-                            <div className="flex items-center space-x-4">
-                                <div className="p-3 bg-green-100 rounded-lg">
-                                    <ChartBarIcon className="h-8 w-8 text-green-600" />
+                    <div onClick={() => router.push('/admin/reports')}>
+                        <Card hover className="cursor-pointer">
+                            <CardContent className="p-6">
+                                <div className="flex items-center space-x-4">
+                                    <div className="p-3 bg-green-100 rounded-lg">
+                                        <ChartBarIcon className="h-8 w-8 text-green-600" />
+                                    </div>
+                                    <div>
+                                        <h3 className="font-semibold text-gray-800">View Reports</h3>
+                                        <p className="text-sm text-gray-600">Analytics and insights</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h3 className="font-semibold text-gray-800">View Reports</h3>
-                                    <p className="text-sm text-gray-600">Analytics and insights</p>
-                                </div>
-                            </div>
-                        </CardContent>
-                    </Card>
+                            </CardContent>
+                        </Card>
+                    </div>
                 </div>
             </div>
         </DashboardLayout>

@@ -70,11 +70,13 @@ export const ROLE_PERMISSIONS = {
         canApproveRequests: true,
     },
     finance: {
+        canCreateRequest: true,
         canViewAllRequests: true,
         canApproveRequests: true,
         canManageFunding: true,
     },
     admin: {
+        canCreateRequest: true,
         canViewAllRequests: true,
         canApproveRequests: true,
         canManageUsers: true,
