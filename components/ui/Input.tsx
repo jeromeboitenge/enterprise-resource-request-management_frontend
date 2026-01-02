@@ -2,7 +2,7 @@
 
 'use client';
 
-import React from 'react';
+import React, { useId } from 'react';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     label?: string;
@@ -22,7 +22,9 @@ export const Input: React.FC<InputProps> = ({
     id,
     ...props
 }) => {
-    const inputId = id || `input-${Math.random().toString(36).substr(2, 9)}`;
+    // Use React's useId hook for stable, unique IDs that match on server and client
+    const generatedId = useId();
+    const inputId = id || generatedId;
 
     const inputClasses = `
     w-full px-4 py-2 border rounded-lg transition-all duration-200
