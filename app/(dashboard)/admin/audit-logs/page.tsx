@@ -110,7 +110,6 @@ export default function AuditLogsPage() {
                                             <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Action</th>
                                             <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Resource</th>
                                             <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Details</th>
-                                            <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">IP Address</th>
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-gray-200">
@@ -133,15 +132,12 @@ export default function AuditLogsPage() {
                                                     </Badge>
                                                 </td>
                                                 <td className="px-4 py-4 text-sm text-gray-600">
-                                                    {log.resourceType}
+                                                    {log.resource}
                                                 </td>
                                                 <td className="px-4 py-4 text-sm text-gray-600">
                                                     <div className="max-w-xs truncate">
                                                         {JSON.stringify(log.details)}
                                                     </div>
-                                                </td>
-                                                <td className="px-4 py-4 text-sm text-gray-600 font-mono">
-                                                    {log.ipAddress}
                                                 </td>
                                             </tr>
                                         ))}
