@@ -241,6 +241,21 @@ class ApiService {
         });
         return data;
     }
+
+    // Password Reset
+    async forgotPassword(email: string): Promise<void> {
+        await this.api.post('/auth/forgot-password', { email });
+    }
+
+    async resetPassword(token: string, password: string): Promise<void> {
+        await this.api.post('/auth/reset-password', { token, password });
+    }
+
+    // Team Management
+    async getTeamMembers(): Promise<User[]> {
+        const { data } = await this.api.get<User[]>('/users/team');
+        return data;
+    }
 }
 
 export const api = new ApiService();
