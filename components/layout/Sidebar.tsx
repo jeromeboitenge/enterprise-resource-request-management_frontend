@@ -1,4 +1,4 @@
-// Sidebar Component
+// Sidebar Component - UMUTUNGO Box
 
 'use client';
 
@@ -14,7 +14,8 @@ import {
     UsersIcon,
     BuildingOfficeIcon,
     ChartBarIcon,
-    Cog6ToothIcon,
+    BellIcon,
+    UserCircleIcon,
     XMarkIcon,
 } from '@heroicons/react/24/outline';
 import { UserRole } from '@/lib/types';
@@ -34,7 +35,8 @@ const navigation: NavItem[] = [
     { name: 'Users', href: '/admin/users', icon: UsersIcon, roles: ['admin'] },
     { name: 'Departments', href: '/admin/departments', icon: BuildingOfficeIcon, roles: ['admin'] },
     { name: 'Reports', href: '/admin/reports', icon: ChartBarIcon, roles: ['admin'] },
-    { name: 'Settings', href: '/settings', icon: Cog6ToothIcon, roles: ['admin'] },
+    { name: 'Notifications', href: '/notifications', icon: BellIcon, roles: ['employee', 'manager', 'department_head', 'finance', 'admin'] },
+    { name: 'Profile', href: '/profile', icon: UserCircleIcon, roles: ['employee', 'manager', 'department_head', 'finance', 'admin'] },
 ];
 
 interface SidebarProps {
@@ -87,12 +89,15 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                 {/* Header */}
                 <div className="flex items-center justify-between p-6 border-b border-gray-700">
                     <div className="flex items-center space-x-3">
-                        <div className="h-10 w-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                        <div className="h-10 w-10 bg-gradient-to-br from-[#1976D2] to-[#00897B] rounded-lg flex items-center justify-center">
                             <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                             </svg>
                         </div>
-                        <span className="text-lg font-bold">R2P System</span>
+                        <div>
+                            <span className="text-lg font-bold">UMUTUNGO Box</span>
+                            <p className="text-xs text-gray-400">Asset Management</p>
+                        </div>
                     </div>
                     <button
                         onClick={onClose}
@@ -105,7 +110,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                 {/* User info */}
                 <div className="p-6 border-b border-gray-700">
                     <div className="flex items-center space-x-3">
-                        <div className="h-12 w-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-semibold">
+                        <div className="h-12 w-12 bg-gradient-to-br from-[#1976D2] to-[#00897B] rounded-full flex items-center justify-center text-white font-semibold">
                             {user.firstName.charAt(0)}{user.lastName.charAt(0)}
                         </div>
                         <div>
@@ -118,7 +123,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                 </div>
 
                 {/* Navigation */}
-                <nav className="p-4 space-y-1">
+                <nav className="p-4 space-y-1 overflow-y-auto" style={{ maxHeight: 'calc(100vh - 280px)' }}>
                     {filteredNavigation.map((item) => {
                         const isActive = pathname === item.href || pathname.startsWith(item.href + '/');
                         return (
@@ -129,7 +134,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                                 className={`
                   flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-200
                   ${isActive
-                                        ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
+                                        ? 'bg-gradient-to-r from-[#1976D2] to-[#00897B] text-white shadow-lg'
                                         : 'text-gray-300 hover:bg-gray-700 hover:text-white'
                                     }
                 `}
@@ -144,7 +149,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                 {/* Footer */}
                 <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-700">
                     <p className="text-xs text-gray-400 text-center">
-                        © 2025 R2P System
+                        © 2026 UMUTUNGO Box
                     </p>
                 </div>
             </aside>
